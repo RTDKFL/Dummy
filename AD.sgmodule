@@ -17,8 +17,8 @@ DOMAIN-SET,https://raw.githubusercontent.com/RTDKFL/Dummy/main/s.txt,REJECT
 #URL-REGEX,https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adformat,REJECT
 #URL-REGEX,https?:\/\/[\w-]+\.googlevideo\.com\/.+&oad,REJECT-TINYGIF
 
-#[URL Rewrite]
-#ctier=[A-Z] citer=A 302
+# [URL Rewrite]
+# ctier=[A-Z] citer=A 302
 
 [Script]
 http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/RTDKFL/Dummy/main/wb_launch.js
