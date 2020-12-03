@@ -11,3 +11,4 @@ youtube_ad = type=http-request,pattern=^https?:\/\/.+?\.googlevideo\.com\/.+&(oa
 [MITM]
 hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
 hostname = %APPEND% *.googlevideo.com
+
