@@ -26,9 +26,9 @@ http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positiv
 youtube_ad = type=http-request,pattern=^https?:\/\/.+?\.googlevideo\.com\/.+&(oad|ctier)=(?!A),script-path=https://raw.githubusercontent.com/RTDKFL/Dummy/main/YouTube.js
 
 [MITM]
-#hostname = %APPEND% *.googlevideo.com, *.youtube.com, youtubei.googleapis.com
-#https://github.com/yichahucha/surgehttps://github.com/yichahucha/surge
+# hostname = %APPEND% *.googlevideo.com, *.youtube.com, youtubei.googleapis.com
+# https://github.com/yichahucha/surgehttps://github.com/yichahucha/surge
 hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
-#https://github.com/Choler/Surge/blob/master/Module/youtube.sgmodule
+# https://github.com/Choler/Surge/blob/master/Module/youtube.sgmodule
 hostname = %APPEND% *.googlevideo.com
 
