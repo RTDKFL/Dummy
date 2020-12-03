@@ -23,6 +23,7 @@ ctier=[A-Z] citer=A 302
 [MITM]
 hostname = %APPEND% *.googlevideo.com, *.youtube.com, youtubei.googleapis.com
 
+#https://github.com/yichahucha/surgehttps://github.com/yichahucha/surge
 hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
 
 [Script]
