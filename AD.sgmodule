@@ -3,29 +3,32 @@
 [Rule]
 DOMAIN-SET,https://raw.githubusercontent.com/RTDKFL/Dummy/main/s.txt,REJECT
 
-URL-REGEX,https?:\/\/.+.googlevideo.com\/ptracking\?pltype=adhost,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/api\/stats\/ads,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/get_midroll_,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/pagead\/,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/ptracking\?,REJECT
-URL-REGEX,https?:\/\/.+.youtube.com\/_get_ads,REJECT
-URL-REGEX,https?:\/\/premiumyva.appspot.com\/vmclickstoadvertisersite,REJECT
-URL-REGEX,https?:\/\/s0.2mdn.net\/ads\/,REJECT
-URL-REGEX,https?:\/\/stats.tubemogul.com\/stats\/,REJECT
-URL-REGEX,https?:\/\/youtubei.googleapis.com\/.+ad_break,REJECT
-URL-REGEX,https?:\/\/youtubei.googleapis.com\/youtubei\/.+(ad|log),REJECT
-URL-REGEX,https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adformat,REJECT
-URL-REGEX,https?:\/\/[\w-]+\.googlevideo\.com\/.+&oad,REJECT-TINYGIF
+#URL-REGEX,https?:\/\/.+.googlevideo.com\/ptracking\?pltype=adhost,REJECT
+#URL-REGEX,https?:\/\/.+.youtube.com\/api\/stats\/ads,REJECT
+#URL-REGEX,https?:\/\/.+.youtube.com\/get_midroll_,REJECT
+#URL-REGEX,https?:\/\/.+.youtube.com\/pagead\/,REJECT
+#URL-REGEX,https?:\/\/.+.youtube.com\/ptracking\?,REJECT
+#URL-REGEX,https?:\/\/.+.youtube.com\/_get_ads,REJECT
+#URL-REGEX,https?:\/\/premiumyva.appspot.com\/vmclickstoadvertisersite,REJECT
+#URL-REGEX,https?:\/\/s0.2mdn.net\/ads\/,REJECT
+#URL-REGEX,https?:\/\/stats.tubemogul.com\/stats\/,REJECT
+#URL-REGEX,https?:\/\/youtubei.googleapis.com\/.+ad_break,REJECT
+#URL-REGEX,https?:\/\/youtubei.googleapis.com\/youtubei\/.+(ad|log),REJECT
+#URL-REGEX,https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adformat,REJECT
+#URL-REGEX,https?:\/\/[\w-]+\.googlevideo\.com\/.+&oad,REJECT-TINYGIF
 
-[URL Rewrite]
-ctier=[A-Z] citer=A 302
-
-[MITM]
-hostname = %APPEND% *.googlevideo.com, *.youtube.com, youtubei.googleapis.com
-
-#https://github.com/yichahucha/surgehttps://github.com/yichahucha/surge
-hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
+#[URL Rewrite]
+#ctier=[A-Z] citer=A 302
 
 [Script]
 http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/RTDKFL/Dummy/main/wb_launch.js
 http-response ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info) requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/RTDKFL/Dummy/main/wb_ad.js
+youtube_ad = type=http-request,pattern=^https?:\/\/.+?\.googlevideo\.com\/.+&(oad|ctier)=(?!A),script-path=https://raw.githubusercontent.com/RTDKFL/Dummy/main/YouTube.js
+
+[MITM]
+#hostname = %APPEND% *.googlevideo.com, *.youtube.com, youtubei.googleapis.com
+#https://github.com/yichahucha/surgehttps://github.com/yichahucha/surge
+hostname = api.weibo.cn, mapi.weibo.com, *.uve.weibo.com
+#https://github.com/Choler/Surge/blob/master/Module/youtube.sgmodule
+hostname = %APPEND% *.googlevideo.com
+
