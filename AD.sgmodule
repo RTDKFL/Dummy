@@ -1,3 +1,5 @@
+#!name=RTDKFL_Merged_Module
+#!desc=解決近期 Twitter 圖片無法開啟或開啟緩慢的問題 v20200707.01
 [Rule]
 DOMAIN-SET,https://raw.githubusercontent.com/RTDKFL/Dummy/main/s.txt,REJECT
 
